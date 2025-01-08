@@ -33,9 +33,9 @@ internal class NodeCreate: XCTestCase {
     // Temporarily disabled to prevent failed local-node calls
     //
     internal func testCreateNewNetworkNode() async throws {
-        if shouldSkipTest {
-            throw XCTSkip("Temporarily disabled to prevent failed local-node calls")
-        }
+        // if shouldSkipTest {
+        //     throw XCTSkip("Temporarily disabled to prevent failed local-node calls")
+        // }
 
         // Set the network
         let network = ["localhost:50211": try AccountId.fromString("0.0.3")]
@@ -56,7 +56,7 @@ internal class NodeCreate: XCTestCase {
         let endpoint2 = Endpoint(ipAddress: nil, port: 123, domainName: "testing.com")
 
         // Convert hex string to byte array
-        let validGossipCert = Data(validGossipCertDer.data(using: .utf8)!)
+        let validGossipCert = validGossipCertDer.data(using: .utf8)!
 
         // Generate new admin key
         let adminKey = PrivateKey.generateEd25519()
